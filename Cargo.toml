@@ -1,0 +1,30 @@
+[package]
+name = "sqlite-regex-ext"
+version = "0.1.0"
+edition = "2021"
+
+
+[features]
+
+default = []
+build_extension = ["rusqlite/bundled", "rusqlite/functions"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+
+# once_cell = "1.9.0"
+regex = "1.5.4"
+log = "0.4.14"
+env_logger = "0.9.0"
+anyhow = "1.0.54"
+
+
+[dependencies.rusqlite]
+package = "rusqlite"
+git = "https://github.com/Genomicsplc/rusqlite/"
+branch = "loadable-extensions"
+default-features = false
+features = ["loadable_extension", "vtab", "functions", "bundled"]
+
