@@ -4,10 +4,13 @@ version = "0.1.0"
 edition = "2021"
 
 
-[features]
-
-default = []
-build_extension = ["rusqlite/bundled", "rusqlite/functions"]
+# [features]
+# default = []
+# build_extension = [
+#     "rusqlite/bundled",
+#     "rusqlite/functions",
+#     "rusqlite/loadable_extension",
+# ]
 
 [lib]
 crate-type = ["cdylib"]
@@ -23,8 +26,15 @@ anyhow = "1.0.54"
 
 [dependencies.rusqlite]
 package = "rusqlite"
-git = "https://github.com/Genomicsplc/rusqlite/"
-branch = "loadable-extensions"
+git = "https://github.com/litements/rusqlite/"
+branch = "loadable-extensions-release-2"
+# path = "../rusqlite/loadable-extensions-release-2"
 default-features = false
-features = ["loadable_extension", "vtab", "functions", "bundled"]
-
+features = [
+    "loadable_extension",
+    "vtab",
+    "functions",
+    "bundled",
+    "modern_sqlite",
+    "buildtime_bindgen",
+]
