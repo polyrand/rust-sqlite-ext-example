@@ -7,7 +7,7 @@ conn = sqlite3.connect("test.db", isolation_level=None)
 print(f"Loading SQLite extension in connection: {conn}")
 conn.enable_load_extension(True)
 conn.execute(
-    "SELECT load_extension('target/release/libsqlite_regex.dylib', 'sqlite3_regex_init');"
+    "SELECT load_extension('target/release/libsqlite_regex_ext.dylib', 'sqlite3_regex_init');"
 )
 
 print("Running tests...")
